@@ -4,12 +4,12 @@
 
 [展示地址](https://lesliewaong.top/item/Naruto/)
 
-[![HyIx5F.gif](https://s4.ax1x.com/2022/02/14/HyIx5F.gif)](https://imgtu.com/i/HyIx5F)
+[![HWV49x.gif](https://s4.ax1x.com/2022/02/15/HWV49x.gif)](https://imgtu.com/i/HWV49x)
 
 注意：
 
 * 对移动端进行了自适应。
-* 在苹果的设备上会有展示bug。
+* 在苹果的设备上会有展示bug， `drop-shadow()`在轮回眼上无法生效。
 * Web端无法使用缩放功能。
 * 鼠标移入三勾玉或轮回圈部分有动画。
 
@@ -180,6 +180,42 @@ border-radius: 50%;
 效果图：
 
 [![7m1wcj.png](https://s4.ax1x.com/2022/01/11/7m1wcj.png)](https://imgtu.com/i/7m1wcj)
+
+## box-shadow
+
+用于在元素的框架上添加阴影效果。你可以在同一个元素上设置多个阴影效果，并用逗号将他们分隔开。该属性可设置的值包括`阴影的X轴偏移量`、`Y轴偏移量`、`模糊半径`、`扩散半径`和`颜色`。
+
+你几乎可以在任何元素上使用`box-shadow`来添加阴影效果。如果元素同时设置了 [`border-radius`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)属性 ，那么阴影也会有圆角效果。
+
+如果没有指定`inset`，默认阴影在边框外，即阴影向外扩散。
+
+使用 `inset` 关键字会使得阴影落在盒子内部，这样看起来就像是内容被压低了。 此时阴影会在边框之内 (即使是透明边框）、背景之上、内容之下。
+
+```css
+box-shadow: inset 0 0 1vmin rgba(17, 17, 17, 0.8);
+```
+
+使用`box-shadow`可以获得类似**边框**的效果。
+
+## filter
+
+将模糊或颜色偏移等图形效果应用于元素。滤镜通常用于调整图像，背景和边框的渲染。
+
+CSS 标准里包含了一些已实现预定义效果的函数。你也可以参考一个 SVG 滤镜，通过一个 URL 链接到 SVG 滤镜元素。
+
+```css
+filter: drop-shadow( -0.8vmin -0.5vmin 0.3vmin  rgb(216, 59, 59));
+```
+
+### drop-shadow()
+
+为输入图像添加投影效果。投影实际上是输入图像的alpha蒙版的一个模糊的、偏移的版本，用特定的颜色绘制并合成在图像下面。
+
+**注意:** 这个函数有点类似于 [`box-shadow`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow) 属性. `box-shadow` 属性在元素的整个框后面创建一个矩形阴影, 而 `drop-shadow()` 过滤器则是创建一个符合图像本身形状(alpha通道)的阴影。
+
+```css
+drop-shadow(offset-x offset-y blur-radius spread-radius color)
+```
 
 ## position
 
@@ -406,20 +442,6 @@ animation属性是 `animation-name`,`animation-duration`, `animation-timing-func
 **`::before`**/`::after`表示法是在**CSS 3**中引入的，`::`符号是用来区分**伪类**和伪元素的。支持CSS3的浏览器同时也都支持CSS2中引入的表示法`:before`/`:after`。
 
 **注:** IE8仅支持`:before`/`:after`。
-
-## box-shadow
-
-用于在元素的框架上添加阴影效果。你可以在同一个元素上设置多个阴影效果，并用逗号将他们分隔开。该属性可设置的值包括`阴影的X轴偏移量`、`Y轴偏移量`、`模糊半径`、`扩散半径`和`颜色`。
-
-你几乎可以在任何元素上使用`box-shadow`来添加阴影效果。如果元素同时设置了 [`border-radius`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/border-radius)属性 ，那么阴影也会有圆角效果。
-
-如果没有指定`inset`，默认阴影在边框外，即阴影向外扩散。
-
-使用 `inset` 关键字会使得阴影落在盒子内部，这样看起来就像是内容被压低了。 此时阴影会在边框之内 (即使是透明边框）、背景之上、内容之下。
-
-```css
-box-shadow: inset 0.3vmin 0.2vmin 0.3vmin rgba(17, 17, 17, 0.8);
-```
 
 ## 层叠上下文
 
