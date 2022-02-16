@@ -4,29 +4,46 @@
 
 [展示地址](https://lesliewaong.top/item/Naruto/)
 
+> 展示动图
+
 [![HWV49x.gif](https://s4.ax1x.com/2022/02/15/HWV49x.gif)](https://imgtu.com/i/HWV49x)
 
 注意：
 
 * 对移动端进行了自适应。
+* 鼠标移入三勾玉或轮回圈部分有动画。
 * 在苹果的设备上会有展示bug， `drop-shadow()`在轮回眼上无法生效。
 * Web端无法使用缩放功能。
-* 鼠标移入三勾玉或轮回圈部分有动画。
 
 ## 背景渐变
 
 ### 线性渐变（linear-gradient）
 
-基础用法：`background:linear-gradient(angle,start-color,soft-line,end-color)`;
+基础用法：
 
-* **angle**是渐变角度，不写则默认从上到下，也就是`to bottom`，当然其他类似的直角方向还有`to right`,`to top`,`to left`。其他的对角方向包括`to left top`,`to right top`,`to bottom right`,`to bottom left`。需要注意的是：对角线角度的单词顺序不讲究顺序，`to bottom right`和`to right bottom`是一样的意思。
-* **start-color && end-color**表示起始色标和终止色标，支持16进制颜色（如"`#85e96c`"），h5示例颜色（如"`aqua`"），rgb（如"r`gb(133, 233, 108)`"），rgba（"`rgb(133, 233, 108,.5)`"）、`transparent`。
+```css
+background:linear-gradient(angle,start-color,soft-line,end-color);
+```
+
+* **angle**是渐变角度，不写则默认从上到下，也就是`to bottom`，当然其他类似的直角方向还有`to right`,`to top`,`to left`。其他的对角方向包括`to left top`,`to right top`,`to bottom right`,`to bottom left`。需要注意的是：对角线角度的单词顺序**不讲究顺序**，`to bottom right`和`to right bottom`是一样的意思。
+
+* **start-color && end-color**表示起始色标和终止色标，支持16进制颜色（如"`#85e96c`"），h5示例颜色（如"`aqua`"），rgb（如"`rgb(133, 233, 108)`"），rgba（"`rgba(133, 233, 108,.5)`"）、`transparent`。
+
 * **soft-line**:柔性分界。不写则默认50%。表示两种颜色过渡的柔和边界，不是硬性边界。
-* 如果想写一条硬线，也就是所谓的hard line来进行无渐变分割，则在两个色标尾部紧接着写上50%，注意，除了50%其他都不能完全消除渐变效果。这是一个去渐变的硬线分割写法。
 
-**径向渐变（radial-gradient）**
+* 如果想写一条硬线，也就是所谓的`hard line`来进行无渐变分割，则在两个色标尾部紧接着写上50%，注意，除了50%其他都不能完全消除渐变效果。这是一个去渐变的硬线分割写法。
 
-基础语法：`radial-gradient(shape,start-color, soft-line,end-color )`
+  ```css
+  background:linear-gradient(#fc4a09 50%,#f7d1ab  50%);
+  ```
+
+### 径向渐变（radial-gradient）
+
+基础语法：
+
+```css
+background:radial-gradient(shape,start-color, soft-line,end-color );
+```
 
 * **shape**即渐变的形状，不写则为默认的`ellipse椭圆`，可以改为`circle正圆`。
 
@@ -38,12 +55,12 @@
 
 > 什么是视口？ 
 
-视口 (viewport) 代表当前可见的计算机图形区域。在 Web 浏览器术语中，通常与浏览器窗口相同，但不包括浏览器的 UI， 菜单栏等——即指你正在浏览的文档的那一部分。
+视口 (viewport) 代表当前可见的计算机图形区域。在 **Web 浏览器**术语中，**通常与浏览器窗口相同**，但不包括浏览器的UI， 菜单栏等——即指你正在浏览的文档的那一部分。
 
-文档，比如这篇文章，可能会非常长。你的 viewport 就是你现在所能见到的所有事物。值得注意的是“什么是视口区域”这个问题，页面中的一些导航菜单也包括在其中。**Viewport 的大小取决于屏幕的大小，无论浏览器是否处于全屏模式，是否被用户缩放了。**Viewport 外的区域，比如这个文档的 *See Also* 部分，可能需要滚动到其所在的区域才会出现在屏幕上。
+文档，比如这篇文章，可能会非常长。你的viewport 就是你现在所能见到的所有事物。值得注意的是“什么是视口区域”这个问题，页面中的一些导航菜单也包括在其中。**Viewport 的大小取决于屏幕的大小，无论浏览器是否处于全屏模式，是否被用户缩放了。**Viewport 外的区域，比如这个文档的See Also部分，可能需要滚动到其所在的区域才会出现在屏幕上。
 
-- 在尺寸较大的设备中，在这些设备上，应用显示区域不一定是全屏的，viewport 是浏览器窗口的大小。
-- 在大多数移动设备中，浏览器是全屏的，viewport 是整个屏幕的大小。
+- 在尺寸较大的设备中，在这些设备上，**应用显示区域不一定是全屏的，viewport 是浏览器窗口的大小**。
+- 在大多数移动设备中，**浏览器是全屏的**，**viewport 是整个屏幕的大小**。
 - 在全屏模式下，viewport 是设备屏幕的范围，窗口是浏览器窗口，浏览器窗口大小小于或等于视口的大小，并且文档是这个网站，文档的大小可比 viewport 长或宽。
 
 概括地说，**viewport 基本上是当前文档的可见部分**。
@@ -58,10 +75,10 @@ Web 浏览器包含两个 viewport，**布局视口 (layout viewport)** 和**视
 
 视口单位主要包括以下4个：
 
-* vw：1vw等于视口宽度的1%。
-* vh：1vh等于视口高度的1%。
-* vmin：选取vw和vh中最小的那个。
-* vmax：选取vw和vh中最大的那个。
+* **vw**：1vw等于视口宽度的1%。
+* **vh**：1vh等于视口高度的1%。
+* **vmin**：选取vw和vh中最小的那个。
+* **vmax**：选取vw和vh中最大的那个。
 
 ### vh/vw与%区别
 
@@ -80,25 +97,6 @@ Web 浏览器包含两个 viewport，**布局视口 (layout viewport)** 和**视
 一个用于设置各种单独的边界属性的简写属性。
 
 `border`可以用于设置一个或多个以下属性的值: `border-width`, `border-style`, `border-color`
-
-### border-radius 
-
-`border - radius`允许你设置元素的外边框圆角当使用**一个半径时确定一个圆形**,当使用**两个半径时确定一个椭圆**
-
-这个(椭)圆与边框的交集形成圆角效果。
-
-该属性是一个简写属性,是为了将这四个属性 `border-top-left-radius` 、`border-top-right-radius` 、`border-bottom-right-radius`和 `border-bottom-left-radius` 简写为一个属性。
-
-即使元素**没有边框**,圆角也可以用到 `background` 上面,具体效果受 `background-clip` 影响。
-
-```css
-/* 右上和左下设置圆角*/
-border-radius: 0 12vmin 0 12vmin;
-/* 圆形*/
-width: 60vmin;
-height: 60vmin;
-border-radius: 50%;
-```
 
 ### 利用border画三角形
 
@@ -181,6 +179,25 @@ border-radius: 50%;
 
 [![7m1wcj.png](https://s4.ax1x.com/2022/01/11/7m1wcj.png)](https://imgtu.com/i/7m1wcj)
 
+## border-radius 
+
+`border-radius`允许你设置元素的外边框圆角当使用**一个半径时确定一个圆形**,当使用**两个半径时确定一个椭圆**
+
+这个(椭)圆与边框的交集形成圆角效果。
+
+该属性是一个简写属性,是为了将这四个属性 `border-top-left-radius` 、`border-top-right-radius` 、`border-bottom-right-radius`和 `border-bottom-left-radius` 简写为一个属性。
+
+即使元素**没有边框**,圆角也可以用到 `background` 上面,具体效果受 `background-clip` 影响。
+
+```css
+/* 右上和左下设置圆角*/
+border-radius: 0 12vmin 0 12vmin;
+/* 圆形*/
+width: 60vmin;
+height: 60vmin;
+border-radius: 50%;
+```
+
 ## box-shadow
 
 用于在元素的框架上添加阴影效果。你可以在同一个元素上设置多个阴影效果，并用逗号将他们分隔开。该属性可设置的值包括`阴影的X轴偏移量`、`Y轴偏移量`、`模糊半径`、`扩散半径`和`颜色`。
@@ -195,7 +212,9 @@ border-radius: 50%;
 box-shadow: inset 0 0 1vmin rgba(17, 17, 17, 0.8);
 ```
 
-使用`box-shadow`可以获得类似**边框**的效果。
+**注意**
+
+ios中`box-shadow`容易出现bug，一种方式是设置`border: none;`，使用`box-shadow`和`border-radius`可以获得类似**边框**的效果。
 
 ## filter
 
@@ -217,15 +236,23 @@ filter: drop-shadow( -0.8vmin -0.5vmin 0.3vmin  rgb(216, 59, 59));
 drop-shadow(offset-x offset-y blur-radius spread-radius color)
 ```
 
+**注意**
+
+`drop-shadow()`在ios中也会出现bug，但在一些地方又能正常显示，因此尚未找到原因和解决方法。
+
 ## position
 
 ### static
 
-该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 `top`, `right`, `bottom`, `left` 和 `z-index `属性无效。
+该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。
+
+此时 `top`, `right`, `bottom`, `left` 和 `z-index `属性无效。
 
 ### relative
 
-该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。`position:relative` 对 `table-*-group`, `table-row`, `table-column`, `table-cell`, `table-caption` 元素无效。
+该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。
+
+`position:relative` 对 `table-*-group`, `table-row`, `table-column`, `table-cell`, `table-caption` 元素无效。
 
 ### absolute
 
